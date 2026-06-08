@@ -1,15 +1,17 @@
-import { use, useState } from "react"
-function Formulario ({onAgregar}){
-    const  [patente, setPatente] = useState("");
-    const [horaIngreso, setHoraIngreso] = useState("");
+import { useState } from "react";
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!patente || horaIngreso ) return;
-        onAgregar({ patente, horaIngreso });
-        setPatente("");
-        setHoraIngreso("");
-    };
+function Formulario({ onAgregar }) {
+  const [patente, setPatente] = useState("");
+  const [horaIngreso, setHoraIngreso] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!patente || !horaIngreso) return;
+    onAgregar({ patente, horaIngreso });
+    setPatente("");
+    setHoraIngreso("");
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <input

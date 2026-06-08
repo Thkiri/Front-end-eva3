@@ -1,0 +1,34 @@
+header, footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  padding: 1rem;
+}
+
+form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+input, button {
+  padding: 0.5rem;
+}
+
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 150px;
+  text-align: center;
+}

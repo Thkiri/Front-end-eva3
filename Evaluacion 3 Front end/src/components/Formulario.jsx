@@ -40,7 +40,7 @@ function Formulario({ onAgregar }) {
         />
         Permanente
       </label>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error-msg">{error}</p>}
       <button type="submit">Registrar</button>
     </form>
   );

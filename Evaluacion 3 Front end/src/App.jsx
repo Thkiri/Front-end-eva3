@@ -32,7 +32,9 @@ function App() {
       </header>
       <main>
         <Formulario onAgregar={agregarVehiculo} />
-        <p>Cupos disponibles: {10 - vehiculos.length}</p>
+        <p className="cupos">
+          Cupos disponibles: <span>{10 - vehiculos.length}</span>
+        </p>
         <ListaVehiculos vehiculos={vehiculos} onEliminar={eliminarVehiculo} />
       </main>
       <footer>

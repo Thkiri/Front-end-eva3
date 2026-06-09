@@ -4,14 +4,19 @@ import ListaVehiculos from "./components/ListaVehiculos";
 import "./App.css";
 
 function App() {
-  const [vehiculos, setVehiculos] = useState([]);
+  const [vehiculos, setVehiculos] = useState(() => {
+    const data = localStorage.getItem("vehiculos");
+    return data ? JSON.parse(data) : [];
+  });
 
   const agregarVehiculo = (nuevoVehiculo) => {
     if (vehiculos.length >= 10) {
       alert("Estacionamiento lleno (10 cupos).");
       return;
     }
-    setVehiculos([...vehiculos, nuevoVehiculo]);
+    const actualizados = [...vehiculos, nuevoVehiculo];
+    setVehiculos(actualizados);
+    localStorage.setItem("vehiculos", JSON.stringify(actualizados));
   };
 
   return (

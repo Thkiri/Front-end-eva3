@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function Formulario({ onAgregar }) {
   const [patente, setPatente] = useState("");
+  const [permanente, setPermanente] = useState(false);
   const [error, setError] = useState("");
 
   const validarPatente = (p) => /^[A-Za-z]{4}\d{2}$/.test(p);
@@ -17,8 +18,9 @@ function Formulario({ onAgregar }) {
       hour: "2-digit",
       minute: "2-digit",
     });
-    onAgregar({ patente: patente.toUpperCase(), horaIngreso, permanente: false });
+    onAgregar({ patente: patente.toUpperCase(), horaIngreso, permanente });
     setPatente("");
+    setPermanente(false);
   };
 
   return (
@@ -30,6 +32,14 @@ function Formulario({ onAgregar }) {
         onChange={(e) => setPatente(e.target.value)}
         required
       />
+      <label>
+        <input
+          type="checkbox"
+          checked={permanente}
+          onChange={(e) => setPermanente(e.target.checked)}
+        />
+        Permanente
+      </label>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <button type="submit">Registrar</button>
     </form>

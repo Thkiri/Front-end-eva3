@@ -1,10 +1,10 @@
 import CardVehiculo from "./CardVehiculo";
 
-function ListaVehiculos({ vehiculos }) {
+function ListaVehiculos({ vehiculos, onEliminar }) {
   return (
     <section className="lista">
       {vehiculos.map((v) => (
-        <CardVehiculo key={v.patente} vehiculo={v} />
+        <CardVehiculo key={v.patente} vehiculo={v} onEliminar={onEliminar} />
       ))}
     </section>
   );

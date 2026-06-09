@@ -19,6 +19,12 @@ function App() {
     localStorage.setItem("vehiculos", JSON.stringify(actualizados));
   };
 
+  const eliminarVehiculo = (patente) => {
+    const actualizados = vehiculos.filter((v) => v.patente !== patente);
+    setVehiculos(actualizados);
+    localStorage.setItem("vehiculos", JSON.stringify(actualizados));
+  };
+
   return (
     <>
       <header>
@@ -27,7 +33,7 @@ function App() {
       <main>
         <Formulario onAgregar={agregarVehiculo} />
         <p>Cupos disponibles: {10 - vehiculos.length}</p>
-        <ListaVehiculos vehiculos={vehiculos} />
+        <ListaVehiculos vehiculos={vehiculos} onEliminar={eliminarVehiculo} />
       </main>
       <footer>
         <p>© 2026 - Evaluación 3</p>
